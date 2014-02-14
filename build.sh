@@ -18,7 +18,9 @@ for d in `find . -depth 1 -type d | cut -c3-`; do
       mv temporary.tgz "$d".tgz
       cat template_data.json | sed "s/__MD5SUM__/$real_md5/g" | sed "s/__LASTMOD__/$last_mod/g" >"$d".json
       git add "$d".tgz "$d".json
+
       updated=1
+      echo "Updated package $d"
     fi
   fi
 
